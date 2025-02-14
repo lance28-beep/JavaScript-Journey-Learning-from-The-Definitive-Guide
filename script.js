@@ -25,5 +25,20 @@ console.log(Math.sin(0))
 console.log(Math.log(10))
 
 
-let bigNumber = 1000;
+let bigNumber = 1/0;
 console.log(Number.isFinite(bigNumber))
+
+let timestamp = Date.now()
+console.log(timestamp)
+let now = new Date()
+console.log(now)
+let ms =  now.getTime()
+console.log(ms)
+let iso = now.toISOString()
+console.log(iso)
+
+
+let thisText = "this is a text \n and i \"add new line \n and another new line"
+
+
+console.log(thisText)
