@@ -157,11 +157,64 @@
             // Web Browsers: JavaScript in the browser environment.
             // Node.js: Server-side JavaScript.
             // Tools and Extensions: Productivity-enhancing tools.
-            console.log("\u{1F600}"); 
-
-
-            let a = 2
-
-            let h = 5; z = 7
-
-            console.log(h)
+// 1.4 Example: Character Frequency Histograms
+        // Program Overview:
+            // A Node.js program that reads text from standard input, computes a character frequency histogram, and prints the results.
+            // $ node charfreq.js < charfreq.js
+            // Output: Displays the frequency of each character as a percentage, with a histogram representation.
+        // Key Components:
+            // DefaultMap Class:
+            // Extends JavaScript’s built-in Map class.
+            // Overrides the get() method to return a default value if the key is not found.
+            class DefaultMap extends Map {
+              constructor(defaultValue) {
+                super();
+                this.defaultValue = defaultValue;
+              }
+              get(key) {
+                if (this.has(key)) return super.get(key);
+                else return this.defaultValue;
+              }
+            }
+        // Histogram Class:
+            // Computes and displays character frequency histograms.
+            // Uses DefaultMap to store character counts.
+            // Methods:
+                // add(text): Processes input text, updates character counts, and ignores whitespace.
+                // toString(): Converts the histogram to a formatted string with percentages and a visual representation (using #).
+        // histogramFromStdin() Function:
+            // Asynchronously reads text from standard input and updates the histogram.
+            // Uses for await...of to process chunks of input.
+            async function histogramFromStdin() {
+              process.stdin.setEncoding("utf-8");
+              let histogram = new Histogram();
+              for await (let chunk of process.stdin) {
+                histogram.add(chunk);
+              }
+              return histogram;
+            }
+        // Main Program:
+            // Calls histogramFromStdin() and prints the histogram.
+            histogramFromStdin().then(histogram => { 
+              console.log(histogram.toString()); 
+            });
+        // Example Output: 
+            // Displays character frequencies as a histogram:
+            // T: ########### 11.22%
+            // E: ########## 10.15%
+            // R: ####### 6.68%
+            // S: ###### 6.44%
+            // A: ###### 6.16%
+            // N: ###### 5.81%
+            // O: ##### 5.45%
+            // I: ##### 4.54%
+            // H: #### 4.07%
+            // C: ### 3.36%
+        // Advanced Features Used:
+            // Classes and Inheritance: DefaultMap extends Map.
+            // Asynchronous Programming: async/await for reading input.
+            // Functional Programming: map(), filter(), and sort() for data manipulation.
+            // Unicode Handling: process.stdin.setEncoding("utf-8").
+        // Purpose:
+            // Demonstrates a real-world JavaScript program using advanced features.
+            // Provides a foundation for understanding concepts covered in later chapters.
