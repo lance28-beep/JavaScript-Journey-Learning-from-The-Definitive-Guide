@@ -694,9 +694,53 @@ console.log(newerCustomer)
 
 console.log(newerCustomer?.address0)
 
-delete customer.address0
-delete customer.address1
-delete customer.address2
+console.log(delete customer.address0)
+console.log(delete customer.address1)
+console.log(delete customer.address2)
+console.log(delete customer.address3)
+console.log(delete customer5)
+
+let myObjectInherrited = {y:2}
+let myObjectList = {x : 1, z : function(){return "method result"}}
+
+Object.assign(myObjectList,myObjectInherrited)
+console.log(myObjectList.y)
+console.log(myObjectList)
+
+console.log("x" in myObjectList)
+console.log("y" in myObjectList)
+console.log("toString" in myObjectList)
+
+console.log(myObjectList.hasOwnProperty("x"))
+console.log(myObjectList.hasOwnProperty("y"))
+console.log(myObjectList.hasOwnProperty("toString"))
+
+console.log(myObjectList.propertyIsEnumerable("x"))
+console.log(myObjectList.propertyIsEnumerable("y"))
+console.log(myObjectList.propertyIsEnumerable("toString"))
+
+console.log(myObjectList.x !== undefined)
+console.log(myObjectList.y !== undefined)
+console.log(myObjectList.toString !== undefined)
+
+// for(let obj in myObjectList){
+//     console.log(obj)
+//     console.log(myObjectList[obj])
+//     console.log(typeof myObjectList["z"])
+//     console.log(typeof myObjectList[obj])
+
+//     if(typeof myObjectList[obj] !== "function"){
+//         console.log(obj)
+//         console.log(myObjectList[obj])
+//     }else{
+
+//     }
+// }
 
 
-console.log(customer)
+console.log(Object.keys(myObjectList))
+console.log(Object.values(myObjectList))
+
+for( let obj of Object.keys(myObjectList)){
+    console.log(obj)
+}
